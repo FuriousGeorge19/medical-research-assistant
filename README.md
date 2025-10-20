@@ -9,7 +9,7 @@ This application is a full-stack web application that enables users to query cou
 
 ## Prerequisites
 
-- Python 3.13 or higher
+- Python 3.10 or higher
 - uv (Python package manager)
 - An Anthropic API key (for Claude AI)
 - **For Windows**: Use Git Bash to run the application commands - [Download Git for Windows](https://git-scm.com/downloads/win)

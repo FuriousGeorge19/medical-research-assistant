@@ -5,7 +5,7 @@ const API_URL = '/api';
 let currentSessionId = null;
 
 // DOM elements
-let chatMessages, chatInput, sendButton, totalCourses, courseTitles;
+let chatMessages, chatInput, sendButton, totalPapers, paperTopics;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages = document.getElementById('chatMessages');
     chatInput = document.getElementById('chatInput');
     sendButton = document.getElementById('sendButton');
-    totalCourses = document.getElementById('totalCourses');
-    courseTitles = document.getElementById('courseTitles');
-    
+    totalPapers = document.getElementById('totalPapers');
+    paperTopics = document.getElementById('paperTopics');
+
     setupEventListeners();
     createNewSession();
-    loadCourseStats();
+    loadPaperStats();
 });
 
 // Event Listeners
@@ -122,17 +122,14 @@ function addMessage(content, type, sources = null, isWelcome = false) {
     let html = `<div class="message-content">${displayContent}</div>`;
     
     if (sources && sources.length > 0) {
-        // Convert sources to clickable links or plain text badges
+        // Display sources as plain text badges (students will add hyperlinks as an exercise)
         const sourceLinks = sources.map(source => {
             // Handle both old format (string) and new format (object)
             if (typeof source === 'string') {
                 return `<span class="source-badge">${escapeHtml(source)}</span>`;
             }
-            // New format with text and url
+            // New format with text and url (ignoring url for now)
             const text = escapeHtml(source.text || 'Unknown Source');
-            if (source.url) {
-                return `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-            }
             return `<span class="source-badge">${text}</span>`;
         }).join('');
 
@@ -163,43 +160,43 @@ function escapeHtml(text) {
 async function createNewSession() {
     currentSessionId = null;
     chatMessages.innerHTML = '';
-    addMessage('Welcome to the Course Materials Assistant! I can help you with questions about courses, lessons and specific content. What would you like to know?', 'assistant', null, true);
+    addMessage('Welcome to the Medical Research Assistant! I can help you search medical research literature on various health topics. What would you like to know? (Remember: This is for educational purposes only, not medical advice.)', 'assistant', null, true);
 }
 
-// Load course statistics
-async function loadCourseStats() {
+// Load paper statistics
+async function loadPaperStats() {
     try {
-        console.log('Loading course stats...');
-        const response = await fetch(`${API_URL}/courses`);
-        if (!response.ok) throw new Error('Failed to load course stats');
-        
+        console.log('Loading paper stats...');
+        const response = await fetch(`${API_URL}/papers`);
+        if (!response.ok) throw new Error('Failed to load paper stats');
+
         const data = await response.json();
-        console.log('Course data received:', data);
-        
+        console.log('Paper data received:', data);
+
         // Update stats in UI
-        if (totalCourses) {
-            totalCourses.textContent = data.total_courses;
+        if (totalPapers) {
+            totalPapers.textContent = data.total_papers;
         }
-        
-        // Update course titles
-        if (courseTitles) {
-            if (data.course_titles && data.course_titles.length > 0) {
-                courseTitles.innerHTML = data.course_titles
-                    .map(title => `<div class="course-title-item">${title}</div>`)
+
+        // Update paper topics
+        if (paperTopics) {
+            if (data.topics && data.topics.length > 0) {
+                paperTopics.innerHTML = data.topics
+                    .map(topic => `<div class="topic-badge">${escapeHtml(topic)}</div>`)
                     .join('');
             } else {
-                courseTitles.innerHTML = '<span class="no-courses">No courses available</span>';
+                paperTopics.innerHTML = '<span class="no-topics">No topics available</span>';
             }
         }
-        
+
     } catch (error) {
-        console.error('Error loading course stats:', error);
+        console.error('Error loading paper stats:', error);
         // Set default values on error
-        if (totalCourses) {
-            totalCourses.textContent = '0';
+        if (totalPapers) {
+            totalPapers.textContent = '0';
         }
-        if (courseTitles) {
-            courseTitles.innerHTML = '<span class="error">Failed to load courses</span>';
+        if (paperTopics) {
+            paperTopics.innerHTML = '<span class="error">Failed to load papers</span>';
         }
     }
 }

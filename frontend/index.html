@@ -6,30 +6,35 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Course Materials Assistant</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <title>Medical Research Assistant</title>
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Course Materials Assistant</h1>
-            <p class="subtitle">Ask questions about courses, instructors, and content</p>
+            <h1>Medical Research Assistant</h1>
+            <p class="subtitle">Search curated medical research literature</p>
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> This tool provides information for educational purposes only.
+                It is NOT medical advice. Always consult with qualified healthcare professionals for medical decisions.
+            </div>
         </header>
 
         <div class="main-content">
             <!-- Left Sidebar -->
             <aside class="sidebar">
-                <!-- Course Stats -->
+                <!-- Paper Stats -->
                 <div class="sidebar-section">
                     <details class="stats-collapsible">
-                        <summary class="stats-header">Courses</summary>
-                        <div class="course-stats" id="courseStats">
+                        <summary class="stats-header">Research Library</summary>
+                        <div class="paper-stats" id="paperStats">
                             <div class="stat-item">
-                                <span class="stat-label">Number of courses:</span>
-                                <span class="stat-value" id="totalCourses">-</span>
+                                <span class="stat-label">Total papers:</span>
+                                <span class="stat-value" id="totalPapers">-</span>
                             </div>
                             <div class="stat-item">
-                                <div class="course-titles" id="courseTitles">
+                                <span class="stat-label">Topics:</span>
+                                <div class="paper-topics" id="paperTopics">
                                     <span class="loading">Loading...</span>
                                 </div>
                             </div>
@@ -42,10 +47,11 @@
                     <details class="suggested-collapsible">
                         <summary class="suggested-header">Try asking:</summary>
                         <div class="suggested-items">
-                            <button class="suggested-item" data-question="What is the outline of the &quot;MCP: Build Rich-Context AI Apps with Anthropic&quot; course?">Outline of a course</button>
-                            <button class="suggested-item" data-question="Are there any courses that include a Chatbot implementation?">Courses about Chatbot</button>
-                            <button class="suggested-item" data-question="Are there any courses that explain what RAG is?">Courses explaining RAG</button>
-                            <button class="suggested-item" data-question="What was covered in lesson 5 of the MCP course?">Details of a course's lesson</button>
+                            <button class="suggested-item" data-question="What are the current treatments for type 2 diabetes?">Diabetes treatments</button>
+                            <button class="suggested-item" data-question="What does research show about the effectiveness of digital mental health apps?">Digital mental health</button>
+                            <button class="suggested-item" data-question="What are the guidelines for managing hypertension?">Hypertension guidelines</button>
+                            <button class="suggested-item" data-question="What are the health effects of intermittent fasting?">Intermittent fasting</button>
+                            <button class="suggested-item" data-question="What is the safety profile of COVID-19 vaccines?">COVID vaccine safety</button>
                         </div>
                     </details>
                 </div>
@@ -56,10 +62,10 @@
                 <div class="chat-container">
                     <div id="chatMessages" class="chat-messages"></div>
                     <div class="chat-input-container">
-                        <input 
-                            type="text" 
-                            id="chatInput" 
-                            placeholder="Ask about courses, lessons, or specific content..."
+                        <input
+                            type="text"
+                            id="chatInput"
+                            placeholder="Ask about medical conditions, treatments, or research findings..."
                             autocomplete="off"
                         >
                         <button id="sendButton">

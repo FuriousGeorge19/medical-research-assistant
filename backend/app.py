@@ -8,12 +8,13 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 import os
+import traceback  # TEMPORARY: For debugging - remove before student testing module
 
 from config import config
 from rag_system import RAGSystem
 
 # Initialize FastAPI app
-app = FastAPI(title="Course Materials RAG System", root_path="")
+app = FastAPI(title="Medical Research Assistant", root_path="")
 
 # Add trusted host middleware for proxy
 app.add_middleware(
@@ -36,20 +37,20 @@ rag_system = RAGSystem(config)
 
 # Pydantic models for request/response
 class QueryRequest(BaseModel):
-    """Request model for course queries"""
+    """Request model for medical research queries"""
     query: str
     session_id: Optional[str] = None
 
 class QueryResponse(BaseModel):
-    """Response model for course queries"""
+    """Response model for medical research queries"""
     answer: str
     sources: List[Dict[str, Optional[str]]]  # Each source has "text" and "url" keys
     session_id: str
 
-class CourseStats(BaseModel):
-    """Response model for course statistics"""
-    total_courses: int
-    course_titles: List[str]
+class PaperStats(BaseModel):
+    """Response model for paper catalog statistics"""
+    total_papers: int
+    topics: List[str]
 
 # API Endpoints
 
@@ -61,41 +62,64 @@ async def query_documents(request: QueryRequest):
         session_id = request.session_id
         if not session_id:
             session_id = rag_system.session_manager.create_session()
-        
+
         # Process query using RAG system
         answer, sources = rag_system.query(request.query, session_id)
-        
+
         return QueryResponse(
             answer=answer,
             sources=sources,
             session_id=session_id
         )
     except Exception as e:
+        # TEMPORARY: Detailed error logging for debugging - remove before student module
+        print("=" * 80)
+        print("ERROR IN /api/query:")
+        print(f"Query: {request.query}")
+        print(f"Session ID: {request.session_id}")
+        print(f"Error: {e}")
+        print("Full traceback:")
+        traceback.print_exc()
+        print("=" * 80)
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/courses", response_model=CourseStats)
-async def get_course_stats():
-    """Get course analytics and statistics"""
+@app.get("/api/papers", response_model=PaperStats)
+async def get_paper_stats():
+    """Get paper catalog analytics and statistics"""
     try:
-        analytics = rag_system.get_course_analytics()
-        return CourseStats(
-            total_courses=analytics["total_courses"],
-            course_titles=analytics["course_titles"]
+        analytics = rag_system.get_paper_analytics()
+        return PaperStats(
+            total_papers=analytics["total_papers"],
+            topics=analytics["topics"]
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.on_event("startup")
 async def startup_event():
-    """Load initial documents on startup"""
-    docs_path = "../docs"
-    if os.path.exists(docs_path):
-        print("Loading initial documents...")
+    """Load medical papers on startup"""
+    papers_path = config.DOCS_PATH
+    metadata_path = config.METADATA_PATH
+
+    if os.path.exists(papers_path):
+        print("Loading medical research papers...")
         try:
-            courses, chunks = rag_system.add_course_folder(docs_path, clear_existing=False)
-            print(f"Loaded {courses} courses with {chunks} chunks")
+            papers, chunks = rag_system.add_papers_from_folder(
+                papers_path,
+                metadata_path,
+                clear_existing=False
+            )
+            print(f"Loaded {papers} papers with {chunks} chunks")
+
+            # Print topics available
+            analytics = rag_system.get_paper_analytics()
+            topics = analytics.get("topics", [])
+            if topics:
+                print(f"Available topics: {', '.join(topics)}")
         except Exception as e:
-            print(f"Error loading documents: {e}")
+            print(f"Error loading medical papers: {e}")
+    else:
+        print(f"Warning: Medical papers directory not found at {papers_path}")
 
 # Custom static file handler with no-cache headers for development
 from fastapi.staticfiles import StaticFiles

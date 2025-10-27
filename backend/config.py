@@ -20,9 +20,15 @@ class Config:
     CHUNK_OVERLAP: int = 100     # Characters to overlap between chunks
     MAX_RESULTS: int = 5         # Maximum search results to return
     MAX_HISTORY: int = 2         # Number of conversation messages to remember
-    
-    # Database paths
-    CHROMA_PATH: str = "./chroma_db"  # ChromaDB storage location
+
+    # ChromaDB collection names
+    CATALOG_COLLECTION: str = "paper_catalog"   # Collection for paper metadata
+    CONTENT_COLLECTION: str = "paper_content"   # Collection for paper chunks
+
+    # File paths
+    CHROMA_PATH: str = "./chroma_db"           # ChromaDB storage location
+    DOCS_PATH: str = "../medical_papers"       # Medical papers directory
+    METADATA_PATH: str = ".."                  # Directory containing metadata JSON files
 
 config = Config()
 

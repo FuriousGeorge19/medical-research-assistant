@@ -1,0 +1,365 @@
+{
+  "papers": [
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Advances in the management of type 2 diabetes in adults",
+      "pmc_id": "PMC10481754",
+      "year": 2023,
+      "type": "Comprehensive Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10481754/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10481754/pdf/",
+      "description": "Comprehensive review prioritizing RCTs and clinical guidelines"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "A critical review on diabetes mellitus type 1 and type 2 management approaches: from lifestyle modification to current and novel targets and therapeutic agents",
+      "pmc_id": "PMC11527681",
+      "year": 2024,
+      "journal": "Frontiers in Endocrinology",
+      "type": "Critical Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11527681/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11527681/pdf/",
+      "description": "Covers lifestyle changes and standard medications"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Current Advances in the Management of Diabetes Mellitus",
+      "pmc_id": "PMC9599361",
+      "year": 2022,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9599361/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9599361/pdf/",
+      "description": "Reviews nanotechnology, gene therapy, stem cell, and lifestyle interventions"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Assessing the Effectiveness of Digital Health Behavior Strategies on Type 2 Diabetes Management: Systematic Review and Network Meta-Analysis",
+      "pmc_id": "PMC11888087",
+      "year": 2024,
+      "type": "Meta-Analysis",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11888087/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11888087/pdf/",
+      "description": "Meta-analysis of 52 RCTs on digital interventions"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Dietary patterns and management of type 2 diabetes: A systematic review of randomised clinical trials",
+      "pubmed_id": "30952576",
+      "year": 2019,
+      "type": "Systematic Review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30952576/",
+      "description": "Evidence-based dietary intervention approaches"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "Efficacy of Stand-Alone Digital Mental Health Applications for Anxiety and Depression: A Meta-Analysis of Randomized Controlled Trials",
+      "pmc_id": "PMC10527200",
+      "year": 2023,
+      "type": "Meta-Analysis",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10527200/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10527200/pdf/",
+      "description": "Comprehensive meta-analysis of digital mental health interventions"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "Digital Mental Health Interventions for Alleviating Depression and Anxiety During Psychotherapy Waiting Lists: Systematic Review",
+      "pmc_id": "PMC11422735",
+      "year": 2024,
+      "type": "Systematic Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11422735/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11422735/pdf/",
+      "description": "8-study systematic review"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "Effectiveness of Digital Behavioral Activation Interventions for Depression and Anxiety: Systematic Review and Meta-Analysis",
+      "pmc_id": "PMC12227033",
+      "year": 2025,
+      "type": "Systematic Review and Meta-Analysis",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12227033/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12227033/pdf/",
+      "description": "Latest systematic review and meta-analysis"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "Digital Health Interventions for Depression and Anxiety in Low- and Middle-Income Countries: Rapid Scoping Review",
+      "pmc_id": "PMC12413575",
+      "year": 2024,
+      "type": "Scoping Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12413575/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12413575/pdf/",
+      "description": "Global perspective on mental health interventions"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "Digital Mental Health Interventions for the Prevention and Treatment of Social Anxiety Disorder in Children, Adolescents, and Young Adults: Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "pmc_id": "PMC12203032",
+      "year": 2024,
+      "type": "Systematic Review and Meta-Analysis",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12203032/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12203032/pdf/",
+      "description": "Age-specific treatment approaches"
+    },
+    {
+      "topic": "Mental Health",
+      "title": "The Acceptability and Usability of Digital Health Interventions for Adults With Depression, Anxiety, and Somatoform Disorders: Qualitative Systematic Review",
+      "pmc_id": "PMC7381032",
+      "year": 2020,
+      "type": "Qualitative Systematic Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7381032/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7381032/pdf/",
+      "description": "Qualitative systematic review on patient experience"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Updates in the management of hypertension",
+      "pmc_id": "PMC11152838",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11152838/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11152838/pdf/",
+      "description": "Latest evidence on hypertension management"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Advances in Hypertension Management: Insights from the Latest European Guidelines",
+      "pmc_id": "PMC12027560",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12027560/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12027560/pdf/",
+      "description": "Comprehensive European guideline review"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Hypertension: A Continuing Public Healthcare Issue",
+      "doi": "10.3390/ijms26010123",
+      "year": 2024,
+      "journal": "MDPI",
+      "type": "Review",
+      "url": "https://www.mdpi.com/1422-0067/26/1/123",
+      "pdf_url": "https://www.mdpi.com/1422-0067/26/1/123/pdf",
+      "description": "Reviews most-cited hypertension guidelines"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Key Updates to the 2024 ESC Hypertension Guidelines and Future Perspectives",
+      "doi": "10.3390/medicina61020193",
+      "year": 2025,
+      "journal": "MDPI",
+      "type": "Review",
+      "url": "https://www.mdpi.com/1648-9144/61/2/193",
+      "pdf_url": "https://www.mdpi.com/1648-9144/61/2/193/pdf",
+      "description": "Latest European Society of Cardiology updates"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Emerging therapeutic frontiers in hypertension management",
+      "doi": "10.3389/fcvm.2025.1550181",
+      "year": 2025,
+      "journal": "Frontiers",
+      "type": "Review",
+      "url": "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1550181/full",
+      "pdf_url": "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1550181/pdf",
+      "description": "Novel treatment mechanisms including gene silencing"
+    },
+    {
+      "topic": "Sleep Medicine",
+      "title": "Sleep medicine: Practice, challenges and new frontiers",
+      "pmc_id": "PMC9616008",
+      "year": 2022,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9616008/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9616008/pdf/",
+      "description": "Comprehensive review of COMISA and CBT-I"
+    },
+    {
+      "topic": "Sleep Medicine",
+      "title": "A comprehensive review of obstructive sleep apnea",
+      "pmc_id": "PMC8340897",
+      "year": 2021,
+      "type": "Comprehensive Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340897/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340897/pdf/",
+      "description": "OSA's effects on cardiovascular, pulmonary, and neurocognitive systems"
+    },
+    {
+      "topic": "Sleep Medicine",
+      "title": "Technologic advances in the assessment and management of obstructive sleep apnoea beyond the apnoea-hypopnoea index: a narrative review",
+      "pmc_id": "PMC7578472",
+      "year": 2020,
+      "type": "Narrative Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7578472/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7578472/pdf/",
+      "description": "Beyond traditional AHI measurements"
+    },
+    {
+      "topic": "Sleep Medicine",
+      "title": "Relevance of sleep for wellness: New trends in using artificial intelligence and machine learning",
+      "pmc_id": "PMC10955542",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10955542/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10955542/pdf/",
+      "description": "AI/ML applications in sleep medicine"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "The impact of intermittent fasting on gut microbiota: a systematic review of human studies",
+      "pmc_id": "PMC10894978",
+      "year": 2024,
+      "journal": "Frontiers in Nutrition",
+      "type": "Systematic Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10894978/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10894978/pdf/",
+      "description": "Comprehensive review by Paukkonen et al."
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Gut microbiome remodeling and metabolomic profile improves in response to protein pacing with intermittent fasting versus continuous caloric restriction",
+      "pmc_id": "PMC11133430",
+      "year": 2024,
+      "journal": "Nature Communications",
+      "type": "Research Article",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11133430/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11133430/pdf/",
+      "description": "High-impact research on IF and microbiome"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Intermittent fasting modulates human gut microbiota diversity in a phenotype-dependent manner: a systematic review",
+      "pmc_id": "PMC11220331",
+      "year": 2024,
+      "type": "Systematic Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11220331/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11220331/pdf/",
+      "description": "Phenotype-specific effects of IF"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Exploratory analysis of one versus two-day intermittent fasting protocols on the gut microbiome and plasma metabolome in adults with overweight/obesity",
+      "pmc_id": "PMC9644216",
+      "year": 2022,
+      "type": "Research Article",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9644216/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9644216/pdf/",
+      "description": "Protocol comparison study"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Gut microbiota modulation as a possible mediating mechanism for fasting-induced alleviation of metabolic complications: a systematic review",
+      "pubmed_id": "34906176",
+      "year": 2021,
+      "type": "Systematic Review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34906176/",
+      "description": "Mechanistic systematic review"
+    },
+    {
+      "topic": "Cancer Prevention & Screening",
+      "title": "Cancer Screening: Present Recommendations, the Development of Multi-Cancer Early Development Tests, and the Prospect of Universal Cancer Screening",
+      "pmc_id": "PMC10969110",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10969110/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10969110/pdf/",
+      "description": "Comprehensive screening guidelines review"
+    },
+    {
+      "topic": "Cancer Prevention & Screening",
+      "title": "Targeted Screening for Cancer: Learnings and Applicability to Melanoma: A Scoping Review",
+      "pmc_id": "PMC11355139",
+      "year": 2024,
+      "type": "Scoping Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11355139/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11355139/pdf/",
+      "description": "Personalized cancer screening evidence"
+    },
+    {
+      "topic": "Cancer Prevention & Screening",
+      "title": "Updated Review for Guidelines for Cervical Cancer Screening in Immunosuppressed Women Without HIV Infection",
+      "pmc_id": "PMC11939099",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11939099/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11939099/pdf/",
+      "description": "Latest cervical cancer guidelines"
+    },
+    {
+      "topic": "Cancer Prevention & Screening",
+      "title": "Changes to the US Preventive Services Task Force Screening Guidelines and Incidence of Breast Cancer",
+      "pmc_id": "PMC11681378",
+      "year": 2024,
+      "type": "Research Article",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11681378/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11681378/pdf/",
+      "description": "Breast cancer screening trends"
+    },
+    {
+      "topic": "Cancer Prevention & Screening",
+      "title": "A scoping review on population-centered indicators for cancer care continuum",
+      "pmc_id": "PMC9614426",
+      "year": 2022,
+      "type": "Scoping Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9614426/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9614426/pdf/",
+      "description": "Population-level cancer monitoring"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Long-term safety and effectiveness of mRNA-1273 vaccine in adults: COVE trial open-label and booster phases",
+      "doi": "10.1038/s41467-024-50376-z",
+      "year": 2024,
+      "journal": "Nature Communications",
+      "type": "Research Article",
+      "url": "https://www.nature.com/articles/s41467-024-50376-z",
+      "pdf_url": "https://www.nature.com/articles/s41467-024-50376-z.pdf",
+      "description": "Long-term vaccine data from Nature"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "The effect of pre-COVID and post-COVID vaccination on long COVID: A systematic review and meta-analysis",
+      "doi": "10.1016/j.jinf.2024.106359",
+      "year": 2024,
+      "journal": "Journal of Infection",
+      "type": "Systematic Review and Meta-Analysis",
+      "url": "https://www.journalofinfection.com/article/S0163-4453(24)00293-7/fulltext",
+      "description": "Meta-analysis on long COVID prevention"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "The effectiveness of COVID-19 vaccine in the prevention of post-COVID conditions: a systematic literature review and meta-analysis of the latest research",
+      "doi": "10.1017/ash.2024.411",
+      "year": 2024,
+      "journal": "Antimicrobial Stewardship & Healthcare Epidemiology",
+      "type": "Systematic Review and Meta-Analysis",
+      "url": "https://www.cambridge.org/core/journals/antimicrobial-stewardship-and-healthcare-epidemiology/article/effectiveness-of-covid19-vaccine-in-the-prevention-of-postcovid-conditions-a-systematic-literature-review-and-metaanalysis-of-the-latest-research/A0B115B5D3AA60846799857B801D116E",
+      "description": "Systematic literature review and meta-analysis"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Efficacy and safety of COVID-19 vaccines",
+      "pubmed_id": "36473651",
+      "year": 2022,
+      "type": "Review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36473651/",
+      "description": "Comprehensive vaccine review"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Efficacy and limitations of SARS-CoV-2 vaccines - A systematic review",
+      "pubmed_id": "40189198",
+      "year": 2025,
+      "type": "Systematic Review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40189198/",
+      "description": "Latest systematic review"
+    }
+  ],
+  "metadata": {
+    "total_papers": 35,
+    "topics": 7,
+    "date_range": "2020-2025",
+    "collection_date": "2025-10-26",
+    "purpose": "Medical Research RAG Chatbot Educational Project",
+    "access_type": "Open Access"
+  }
+}

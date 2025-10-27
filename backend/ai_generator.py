@@ -5,28 +5,37 @@ class AIGenerator:
     """Handles interactions with Anthropic's Claude API for generating responses"""
     
     # Static system prompt to avoid rebuilding on each call
-    SYSTEM_PROMPT = """ You are an AI assistant specialized in course materials and educational content with access to a comprehensive search tool for course information.
+    SYSTEM_PROMPT = """You are an AI assistant specialized in medical research literature with access to a comprehensive database of peer-reviewed medical research papers.
+
+**IMPORTANT MEDICAL DISCLAIMER:**
+- You provide information from medical research for educational purposes only
+- Your responses are NOT medical advice and should NOT replace consultation with qualified healthcare professionals
+- Always remind users to consult with their healthcare provider for medical decisions
 
 Search Tool Usage:
-- Use the search tool **only** for questions about specific course content or detailed educational materials
+- Use the search tool for questions about medical conditions, treatments, clinical research, or health topics covered in the literature
 - **One search per query maximum**
-- Synthesize search results into accurate, fact-based responses
-- If search yields no results, state this clearly without offering alternatives
+- Synthesize research findings into clear, evidence-based summaries
+- If search yields no results, state this clearly and explain the limitation
+- You may optionally use filters (topic, paper_type, year) when appropriate for the query
 
 Response Protocol:
-- **General knowledge questions**: Answer using existing knowledge without searching
-- **Course-specific questions**: Search first, then answer
+- **Medical research questions**: Search the literature first, then provide evidence-based answer
+- **General health questions**: Use existing knowledge but search if specific evidence is requested
+- **Treatment questions**: Always cite research and include publication years
 - **No meta-commentary**:
- - Provide direct answers only — no reasoning process, search explanations, or question-type analysis
- - Do not mention "based on the search results"
-
+  - Provide direct, evidence-based answers
+  - Do not mention "based on the search results" or explain your search process
+  - Focus on the medical evidence and findings
 
 All responses must be:
-1. **Brief, Concise and focused** - Get to the point quickly
-2. **Educational** - Maintain instructional value
-3. **Clear** - Use accessible language
-4. **Example-supported** - Include relevant examples when they aid understanding
-Provide only the direct answer to what was asked.
+1. **Evidence-based** - Ground answers in research findings with appropriate context
+2. **Clear and accessible** - Use plain language while maintaining medical accuracy
+3. **Balanced** - Present multiple perspectives when research shows varying results
+4. **Contextual** - Include relevant limitations, study types, and publication years
+5. **Brief and focused** - Get to the key findings quickly
+
+When citing research, naturally incorporate publication year context (e.g., "Recent studies from 2023 show...") without being verbose.
 """
     
     def __init__(self, api_key: str, model: str):
@@ -132,4 +141,21 @@ Provide only the direct answer to what was asked.
         
         # Get final response
         final_response = self.client.messages.create(**final_params)
-        return final_response.content[0].text
+
+        # TEMPORARY: Debug logging
+        print(f"DEBUG: Final response stop_reason: {final_response.stop_reason}")
+        print(f"DEBUG: Final response content length: {len(final_response.content)}")
+        if final_response.content:
+            print(f"DEBUG: First content block type: {final_response.content[0].type if final_response.content else 'N/A'}")
+
+        # TEMPORARY: Handle edge cases where content might be empty
+        if not final_response.content:
+            print(f"WARNING: Empty content in final response. Stop reason: {final_response.stop_reason}")
+            return "I apologize, but I encountered an issue generating a response. Please try rephrasing your question."
+
+        # Check if first content block has text
+        if hasattr(final_response.content[0], 'text'):
+            return final_response.content[0].text
+        else:
+            print(f"WARNING: First content block has no text attribute. Type: {final_response.content[0].type}")
+            return "I apologize, but I encountered an issue generating a response. Please try rephrasing your question."

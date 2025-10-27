@@ -1,0 +1,223 @@
+{
+  "papers": [
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Diagnosis and management of type 2 diabetes mellitus in patients with ischaemic heart disease and acute coronary syndromes - a review of evidence and recommendations",
+      "pmc_id": "PMC11794822",
+      "year": 2025,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11794822/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11794822/pdf/",
+      "description": "Evidence-based recommendations for T2DM management in patients with cardiovascular disease"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Effectiveness of diabetes self-management education (DSME) in type 2 diabetes mellitus (T2DM) patients: Systematic literature review",
+      "pmc_id": "PMC8129774",
+      "year": 2021,
+      "type": "Systematic Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8129774/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8129774/pdf/",
+      "description": "Comprehensive review of diabetes self-management education effectiveness"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Personalized Type 2 Diabetes Management: An Update on Recent Advances and Recommendations",
+      "pmc_id": "PMC8824792",
+      "year": 2022,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8824792/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8824792/pdf/",
+      "description": "Phenotypic clustering and personalized management approaches"
+    },
+    {
+      "topic": "Type 2 Diabetes Management",
+      "title": "Dietary Management of Obesity: A Review of the Evidence",
+      "pmc_id": "PMC7823549",
+      "year": 2021,
+      "journal": "Diagnostics (Basel)",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7823549/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7823549/pdf/",
+      "description": "Evidence-based dietary approaches for obesity management relevant to diabetes"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Guideline-Driven Management of Hypertension: An Evidence-Based Update",
+      "pmc_id": "PMC8034801",
+      "year": 2021,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8034801/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8034801/pdf/",
+      "description": "Evidence-based update on hypertension management guidelines"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "HIGH BLOOD PRESSURE AND CARDIOVASCULAR DISEASE",
+      "pmc_id": "PMC10243231",
+      "year": 2023,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10243231/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10243231/pdf/",
+      "description": "Comprehensive review on blood pressure and cardiovascular disease relationships"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Progress Toward Improved Cardiovascular Health in the United States: Healthy People 2020 Heart Disease and Stroke Objectives",
+      "pmc_id": "PMC8428048",
+      "year": 2021,
+      "type": "Research Article",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8428048/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8428048/pdf/",
+      "description": "Population-level cardiovascular health trends and objectives"
+    },
+    {
+      "topic": "Cardiovascular Health",
+      "title": "Dietary interventions for obesity: clinical and mechanistic findings",
+      "pmc_id": "PMC7773341",
+      "year": 2021,
+      "journal": "Journal of Clinical Investigation",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7773341/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7773341/pdf/",
+      "description": "Clinical and mechanistic findings on dietary interventions with cardiovascular relevance"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Intermittent Fasting as a Nutrition Approach against Obesity and Metabolic Disease",
+      "pmc_id": "PMC8726642",
+      "year": 2020,
+      "journal": "Current Opinion in Clinical Nutrition and Metabolic Care",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8726642/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8726642/pdf/",
+      "description": "IF as a nutrition approach for obesity and metabolic disease"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Intermittent Fasting: Myths, Fakes and Truth on This Dietary Regimen Approach",
+      "pmc_id": "PMC11241639",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11241639/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11241639/pdf/",
+      "description": "Comprehensive review analyzing over 50 clinical studies on IF"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Metabolic changes with intermittent fasting",
+      "pmc_id": "PMC10953463",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10953463/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10953463/pdf/",
+      "description": "Metabolic changes and mechanisms associated with intermittent fasting"
+    },
+    {
+      "topic": "Nutrition & Metabolism",
+      "title": "Obesity Management in Adults: A Review",
+      "pmc_id": "PMC11325826",
+      "year": 2023,
+      "journal": "JAMA",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11325826/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11325826/pdf/",
+      "description": "Review of 9 clinical practice guidelines and 2418 obesity-related studies"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Safety & effectiveness of COVID-19 vaccines: A narrative review",
+      "pmc_id": "PMC9552389",
+      "year": 2022,
+      "journal": "Indian J Med Res",
+      "type": "Narrative Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9552389/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9552389/pdf/",
+      "description": "Comprehensive narrative review of COVID-19 vaccine safety and effectiveness"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "A review of the safety and efficacy of current COVID-19 vaccines",
+      "pmc_id": "PMC8815389",
+      "year": 2022,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8815389/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8815389/pdf/",
+      "description": "Review of efficacy, immunogenicity, and safety of 12 most progressed COVID-19 vaccines"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "A Comprehensive Review on Various Aspects of SARS-CoV-2 (COVID-19) Vaccines",
+      "pmc_id": "PMC9999094",
+      "year": 2023,
+      "type": "Comprehensive Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9999094/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9999094/pdf/",
+      "description": "Covers various aspects including efficacy, effectiveness, and safety"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Collaboration within the global vaccine safety surveillance ecosystem during the COVID-19 pandemic: lessons learnt and key recommendations",
+      "pmc_id": "PMC10921508",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10921508/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10921508/pdf/",
+      "description": "Global vaccine safety surveillance and lessons from 12 billion doses"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Long COVID or Post-Acute Sequelae of SARS-CoV-2 Infection (PASC) and the Urgent Need to Identify Diagnostic Biomarkers and Risk Factors",
+      "pmc_id": "PMC11418572",
+      "year": 2024,
+      "journal": "Med Sci Monit",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11418572/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11418572/pdf/",
+      "description": "Comprehensive review on long COVID pathogenesis and diagnostic needs"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Beyond Antivirals: Alternative Therapies for Long COVID",
+      "pmc_id": "PMC11599064",
+      "year": 2024,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11599064/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11599064/pdf/",
+      "description": "Therapeutic approaches beyond traditional antivirals for PASC"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Post-acute sequelae of SARS-CoV-2 infection (Long COVID) in older adults",
+      "pmc_id": "PMC11493926",
+      "year": 2024,
+      "journal": "Geroscience",
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11493926/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11493926/pdf/",
+      "description": "Long COVID pathogenesis mechanisms in older adults"
+    },
+    {
+      "topic": "Infectious Diseases",
+      "title": "Long COVID: a review and proposed visualization of the complexity of long COVID",
+      "pmc_id": "PMC10157068",
+      "year": 2023,
+      "type": "Review",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10157068/",
+      "pdf_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10157068/pdf/",
+      "description": "Review covering nearly 100 million affected individuals globally"
+    }
+  ],
+  "metadata": {
+    "total_papers": 20,
+    "purpose": "Replacement papers for failed downloads",
+    "collection_date": "2025-10-26",
+    "note": "All papers have PMC IDs and are open access to maximize download success rate",
+    "topic_distribution": {
+      "Type 2 Diabetes Management": 4,
+      "Cardiovascular Health": 4,
+      "Nutrition & Metabolism": 4,
+      "Infectious Diseases": 8
+    }
+  }
+}

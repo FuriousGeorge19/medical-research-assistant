@@ -5,112 +5,129 @@ from vector_store import VectorStore, SearchResults
 
 class Tool(ABC):
     """Abstract base class for all tools"""
-    
+
     @abstractmethod
     def get_tool_definition(self) -> Dict[str, Any]:
         """Return Anthropic tool definition for this tool"""
         pass
-    
+
     @abstractmethod
     def execute(self, **kwargs) -> str:
         """Execute the tool with given parameters"""
         pass
 
 
-class CourseSearchTool(Tool):
-    """Tool for searching course content with semantic course name matching"""
-    
+class MedicalLiteratureSearchTool(Tool):
+    """Tool for searching medical research literature with topic and filtering"""
+
     def __init__(self, vector_store: VectorStore):
         self.store = vector_store
         self.last_sources = []  # Track sources from last search
-    
+
     def get_tool_definition(self) -> Dict[str, Any]:
         """Return Anthropic tool definition for this tool"""
         return {
-            "name": "search_course_content",
-            "description": "Search course materials with smart course name matching and lesson filtering",
+            "name": "search_medical_literature",
+            "description": "Search medical research papers with optional filters for topic, paper type, and publication year",
             "input_schema": {
                 "type": "object",
                 "properties": {
                     "query": {
-                        "type": "string", 
-                        "description": "What to search for in the course content"
-                    },
-                    "course_name": {
                         "type": "string",
-                        "description": "Course title (partial matches work, e.g. 'MCP', 'Introduction')"
+                        "description": "What to search for in the medical literature (e.g., 'diabetes treatment', 'hypertension management')"
                     },
-                    "lesson_number": {
+                    "topic": {
+                        "type": "string",
+                        "description": "Filter by specific topic (e.g., 'Type 2 Diabetes Management', 'Mental Health', 'Cardiovascular Health')"
+                    },
+                    "paper_type": {
+                        "type": "string",
+                        "description": "Filter by paper type (e.g., 'Review', 'Meta-Analysis', 'Systematic Review')"
+                    },
+                    "min_year": {
                         "type": "integer",
-                        "description": "Specific lesson number to search within (e.g. 1, 2, 3)"
+                        "description": "Minimum publication year to include (e.g., 2020)"
+                    },
+                    "max_year": {
+                        "type": "integer",
+                        "description": "Maximum publication year to include (e.g., 2025)"
                     }
                 },
                 "required": ["query"]
             }
         }
-    
-    def execute(self, query: str, course_name: Optional[str] = None, lesson_number: Optional[int] = None) -> str:
+
+    def execute(self, query: str, topic: Optional[str] = None, paper_type: Optional[str] = None,
+                min_year: Optional[int] = None, max_year: Optional[int] = None) -> str:
         """
         Execute the search tool with given parameters.
-        
+
         Args:
             query: What to search for
-            course_name: Optional course filter
-            lesson_number: Optional lesson filter
-            
+            topic: Optional topic filter
+            paper_type: Optional paper type filter
+            min_year: Optional minimum year
+            max_year: Optional maximum year
+
         Returns:
             Formatted search results or error message
         """
-        
-        # Use the vector store's unified search interface
+
+        # Build year_range tuple if min or max year provided
+        year_range = None
+        if min_year is not None or max_year is not None:
+            min_y = min_year if min_year is not None else 1900
+            max_y = max_year if max_year is not None else 2100
+            year_range = (min_y, max_y)
+
+        # Use the vector store's search interface
         results = self.store.search(
             query=query,
-            course_name=course_name,
-            lesson_number=lesson_number
+            topic=topic,
+            paper_type=paper_type,
+            year_range=year_range
         )
-        
+
         # Handle errors
         if results.error:
             return results.error
-        
+
         # Handle empty results
         if results.is_empty():
             filter_info = ""
-            if course_name:
-                filter_info += f" in course '{course_name}'"
-            if lesson_number:
-                filter_info += f" in lesson {lesson_number}"
-            return f"No relevant content found{filter_info}."
-        
+            if topic:
+                filter_info += f" in topic '{topic}'"
+            if paper_type:
+                filter_info += f" of type '{paper_type}'"
+            if year_range:
+                filter_info += f" from years {year_range[0]}-{year_range[1]}"
+            return f"No relevant medical literature found{filter_info}."
+
         # Format and return results
         return self._format_results(results)
-    
+
     def _format_results(self, results: SearchResults) -> str:
-        """Format search results with course and lesson context"""
+        """Format search results with paper metadata"""
         formatted = []
         sources = []  # Track sources for the UI
 
         for doc, meta in zip(results.documents, results.metadata):
-            course_title = meta.get('course_title', 'unknown')
-            lesson_num = meta.get('lesson_number')
+            paper_title = meta.get('paper_title', 'Unknown Paper')
+            journal = meta.get('journal', 'Unknown Journal')
+            year = meta.get('year', 'Unknown Year')
+            section = meta.get('section_title', '')
 
-            # Build context header
-            header = f"[{course_title}"
-            if lesson_num is not None:
-                header += f" - Lesson {lesson_num}"
+            # Build context header showing where this content came from
+            header = f"[{paper_title}"
+            if section:
+                header += f" | {section}"
             header += "]"
 
-            # Build source with text and URL
-            source_text = course_title
-            if lesson_num is not None:
-                source_text += f" - Lesson {lesson_num}"
+            # Build source text in format: "Title - Year - Journal"
+            source_text = f"{paper_title} - {year} - {journal}"
 
             # Get URL from vector store
-            url = None
-            if lesson_num is not None:
-                url = self.store.get_lesson_link(course_title, lesson_num)
-            if not url:  # Fallback to course link if no lesson link
-                url = self.store.get_course_link(course_title)
+            url = self.store.get_paper_url(paper_title)
 
             # Create source object with text and URL
             source = {"text": source_text, "url": url}
@@ -123,12 +140,13 @@ class CourseSearchTool(Tool):
 
         return "\n\n".join(formatted)
 
+
 class ToolManager:
     """Manages available tools for the AI"""
-    
+
     def __init__(self):
         self.tools = {}
-    
+
     def register_tool(self, tool: Tool):
         """Register any tool that implements the Tool interface"""
         tool_def = tool.get_tool_definition()
@@ -137,18 +155,18 @@ class ToolManager:
             raise ValueError("Tool must have a 'name' in its definition")
         self.tools[tool_name] = tool
 
-    
+
     def get_tool_definitions(self) -> list:
         """Get all tool definitions for Anthropic tool calling"""
         return [tool.get_tool_definition() for tool in self.tools.values()]
-    
+
     def execute_tool(self, tool_name: str, **kwargs) -> str:
         """Execute a tool by name with given parameters"""
         if tool_name not in self.tools:
             return f"Tool '{tool_name}' not found"
-        
+
         return self.tools[tool_name].execute(**kwargs)
-    
+
     def get_last_sources(self) -> list:
         """Get sources from the last search operation"""
         # Check all tools for last_sources attribute

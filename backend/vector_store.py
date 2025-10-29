@@ -110,7 +110,9 @@ class VectorStore:
 
         if year_range:
             min_year, max_year = year_range
-            filters.append({"year": {"$gte": min_year, "$lte": max_year}})
+            # ChromaDB requires separate filter expressions for min and max
+            filters.append({"year": {"$gte": min_year}})
+            filters.append({"year": {"$lte": max_year}})
 
         if not filters:
             return None
@@ -161,6 +163,7 @@ class VectorStore:
             metadata = {
                 "paper_title": chunk.paper_title,
                 "topic": chunk.topic,
+                "paper_type": chunk.paper_type,  # Added paper_type to metadata
                 "section_title": chunk.section_title,
                 "chunk_index": chunk.chunk_index,
                 "pmcid": chunk.pmcid,

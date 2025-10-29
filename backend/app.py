@@ -8,7 +8,6 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 import os
-import traceback  # TEMPORARY: For debugging - remove before student testing module
 
 from config import config
 from rag_system import RAGSystem
@@ -72,15 +71,6 @@ async def query_documents(request: QueryRequest):
             session_id=session_id
         )
     except Exception as e:
-        # TEMPORARY: Detailed error logging for debugging - remove before student module
-        print("=" * 80)
-        print("ERROR IN /api/query:")
-        print(f"Query: {request.query}")
-        print(f"Session ID: {request.session_id}")
-        print(f"Error: {e}")
-        print("Full traceback:")
-        traceback.print_exc()
-        print("=" * 80)
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/papers", response_model=PaperStats)
@@ -139,5 +129,5 @@ class DevStaticFiles(StaticFiles):
         return response
     
     
-# Serve static files for the frontend
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="static")
+# Serve static files for the frontend with no-cache headers
+app.mount("/", DevStaticFiles(directory="../frontend", html=True), name="static")

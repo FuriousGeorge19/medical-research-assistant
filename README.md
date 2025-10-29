@@ -21,10 +21,13 @@ This application is a full-stack web application that enables users to query med
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-2. **Install Python dependencies**
+2. **Create virtual environment and install dependencies**
    ```bash
+   uv venv
    uv sync
    ```
+
+   > **Note**: The `uv venv` step is required to ensure proper isolation, especially if you have Anaconda or other Python distributions installed.
 
 3. **Set up environment variables**
    

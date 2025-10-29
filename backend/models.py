@@ -21,6 +21,7 @@ class PaperChunk(BaseModel):
     doi: Optional[str] = None           # Digital Object Identifier
     journal: Optional[str] = None       # Journal name
     year: Optional[int] = None          # Publication year
+    paper_type: Optional[str] = None    # Type (e.g., "Review", "Meta-Analysis")
     topic: Optional[str] = None         # Primary topic
     section_title: Optional[str] = None # Section this chunk is from (e.g., "Abstract", "Results")
     chunk_index: int                    # Position of this chunk in the document

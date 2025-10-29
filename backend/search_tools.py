@@ -109,7 +109,7 @@ class MedicalLiteratureSearchTool(Tool):
     def _format_results(self, results: SearchResults) -> str:
         """Format search results with paper metadata"""
         formatted = []
-        sources = []  # Track sources for the UI
+        sources = {}  # Track unique sources by paper_title (deduplicates automatically)
 
         for doc, meta in zip(results.documents, results.metadata):
             paper_title = meta.get('paper_title', 'Unknown Paper')
@@ -123,20 +123,21 @@ class MedicalLiteratureSearchTool(Tool):
                 header += f" | {section}"
             header += "]"
 
-            # Build source text in format: "Title - Year - Journal"
-            source_text = f"{paper_title} - {year} - {journal}"
+            # Only add source if we haven't seen this paper yet
+            if paper_title not in sources:
+                # Build source text in format: "Title - Year - Journal"
+                source_text = f"{paper_title} - {year} - {journal}"
 
-            # Get URL from vector store
-            url = self.store.get_paper_url(paper_title)
+                # Get URL from vector store
+                url = self.store.get_paper_url(paper_title)
 
-            # Create source object with text and URL
-            source = {"text": source_text, "url": url}
-            sources.append(source)
+                # Create source object with text and URL
+                sources[paper_title] = {"text": source_text, "url": url}
 
             formatted.append(f"{header}\n{doc}")
 
-        # Store sources for retrieval
-        self.last_sources = sources
+        # Store unique sources for retrieval (convert dict values to list)
+        self.last_sources = list(sources.values())
 
         return "\n\n".join(formatted)
 

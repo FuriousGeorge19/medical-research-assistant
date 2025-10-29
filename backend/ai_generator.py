@@ -46,7 +46,7 @@ When citing research, naturally incorporate publication year context (e.g., "Rec
         self.base_params = {
             "model": self.model,
             "temperature": 0,
-            "max_tokens": 800
+            "max_tokens": 2048  # Increased from 800 to handle tool results better
         }
     
     def generate_response(self, query: str,
@@ -98,30 +98,30 @@ When citing research, naturally incorporate publication year context (e.g., "Rec
     def _handle_tool_execution(self, initial_response, base_params: Dict[str, Any], tool_manager):
         """
         Handle execution of tool calls and get follow-up response.
-        
+
         Args:
             initial_response: The response containing tool use requests
             base_params: Base API parameters
             tool_manager: Manager to execute tools
-            
+
         Returns:
             Final response text after tool execution
         """
         # Start with existing messages
         messages = base_params["messages"].copy()
-        
+
         # Add AI's tool use response
         messages.append({"role": "assistant", "content": initial_response.content})
-        
+
         # Execute all tool calls and collect results
         tool_results = []
         for content_block in initial_response.content:
             if content_block.type == "tool_use":
                 tool_result = tool_manager.execute_tool(
-                    content_block.name, 
+                    content_block.name,
                     **content_block.input
                 )
-                
+
                 tool_results.append({
                     "type": "tool_result",
                     "tool_use_id": content_block.id,
@@ -138,24 +138,41 @@ When citing research, naturally incorporate publication year context (e.g., "Rec
             "messages": messages,
             "system": base_params["system"]
         }
-        
-        # Get final response
-        final_response = self.client.messages.create(**final_params)
 
-        # TEMPORARY: Debug logging
-        print(f"DEBUG: Final response stop_reason: {final_response.stop_reason}")
-        print(f"DEBUG: Final response content length: {len(final_response.content)}")
-        if final_response.content:
-            print(f"DEBUG: First content block type: {final_response.content[0].type if final_response.content else 'N/A'}")
+        # Get final response with retry logic
+        max_retries = 1
+        for attempt in range(max_retries + 1):
+            try:
+                final_response = self.client.messages.create(**final_params)
 
-        # TEMPORARY: Handle edge cases where content might be empty
-        if not final_response.content:
-            print(f"WARNING: Empty content in final response. Stop reason: {final_response.stop_reason}")
-            return "I apologize, but I encountered an issue generating a response. Please try rephrasing your question."
+                # Validate response has content
+                if not final_response.content:
+                    if attempt < max_retries:
+                        print(f"Warning: Empty content in response (attempt {attempt + 1}/{max_retries + 1}), retrying...")
+                        continue
+                    else:
+                        print(f"Error: Empty content after {max_retries + 1} attempts")
+                        return "I apologize, but I encountered an issue generating a response. Please try again."
 
-        # Check if first content block has text
-        if hasattr(final_response.content[0], 'text'):
-            return final_response.content[0].text
-        else:
-            print(f"WARNING: First content block has no text attribute. Type: {final_response.content[0].type}")
-            return "I apologize, but I encountered an issue generating a response. Please try rephrasing your question."
+                # Validate first content block has text
+                if not hasattr(final_response.content[0], 'text'):
+                    if attempt < max_retries:
+                        print(f"Warning: Response missing text attribute (attempt {attempt + 1}/{max_retries + 1}), retrying...")
+                        continue
+                    else:
+                        print(f"Error: Response missing text attribute after {max_retries + 1} attempts")
+                        return "I apologize, but I encountered an issue generating a response. Please try again."
+
+                # Success - return the text
+                return final_response.content[0].text
+
+            except Exception as e:
+                if attempt < max_retries:
+                    print(f"API error (attempt {attempt + 1}/{max_retries + 1}): {e}, retrying...")
+                    continue
+                else:
+                    print(f"API error after {max_retries + 1} attempts: {e}")
+                    raise
+
+        # Fallback (should never reach here)
+        return "I apologize, but I encountered an issue generating a response. Please try again."

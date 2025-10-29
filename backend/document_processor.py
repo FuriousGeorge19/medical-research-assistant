@@ -278,9 +278,18 @@ class DocumentProcessor:
 
             # Get article type
             paper_type = None
+
+            # Try to get from subject group first
             type_elem = root.find('.//subj-group[@subj-group-type="heading"]/subject')
             if type_elem is not None and type_elem.text:
                 paper_type = type_elem.text.strip()
+
+            # Fallback: check article-type attribute on root element
+            if not paper_type:
+                article_type_attr = root.get('article-type')
+                if article_type_attr:
+                    # Convert hyphenated values to title case (e.g., "review-article" -> "Review")
+                    paper_type = article_type_attr.replace('-', ' ').title().split()[0]
 
             # Get authors and keywords
             authors = self._parse_authors(root)
@@ -318,6 +327,7 @@ class DocumentProcessor:
                     doi=doi,
                     journal=journal,
                     year=year,
+                    paper_type=paper_type,
                     topic=topic,
                     section_title="Abstract",
                     chunk_index=chunk_counter
@@ -339,6 +349,7 @@ class DocumentProcessor:
                         doi=doi,
                         journal=journal,
                         year=year,
+                        paper_type=paper_type,
                         topic=topic,
                         section_title=section_title,
                         chunk_index=chunk_counter
